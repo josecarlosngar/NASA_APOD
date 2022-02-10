@@ -1,1 +1,12 @@
-<p>home works!</p>
+
+
+<div  *ngIf="apodImage">
+  <mat-card >
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title>{{ apodImage.title }}</mat-card-title>
+       <mat-card-subtitle>{{ apodImage.date  }}</mat-card-subtitle>
+    </mat-card-header>
+    <img  [src]="apodImage.url" />
+  </mat-card>
+</div>

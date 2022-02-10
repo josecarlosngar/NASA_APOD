@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Apod } from "../models/apod";
+import { ApodService } from "../services/apod.service";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public apodImage: Apod = new Apod;
+
+  constructor(private apodApi: ApodService) {}
 
   ngOnInit(): void {
+    this.apodApi.getApodImage().subscribe((response: Apod) => {
+      this.apodImage = response;
+    });
   }
-
 }
