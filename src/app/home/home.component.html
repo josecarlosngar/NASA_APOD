@@ -6,27 +6,43 @@
 
 
       <div style=" width: 30%;float: left; margin: none">
-        <div style="  width: 100%; float: left; margin: none; text-align: center; color: black"> {{ apodObject6DaysAgo.title }} </div>
+        <div style="  width: 100%; float: left; margin: none; text-align: center; color: black"> {{
+          apodObject6DaysAgo.title }} </div>
         <div style="float: left; margin: none">
           <img class="img-card" [src]="apodObject6DaysAgo.url" alt=" No se puede mostrar la imagen." />
         </div>
-        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{ apodObject6DaysAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: center; margin: none; text-align: center; color: orange"> {{
+          apodObject6DaysAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: center; margin: none; text-align: center;">
+          <button mat-raised-button color="primary" (click)="goToDetail(apodObject6DaysAgo) ">Detalle</button>
+        </div>
+
       </div>
 
       <div style=" width: 30%;float: left; margin: none">
-        <div style="  width: 100%; float: left; margin: none; text-align: center;  color: black"> {{ apodObject5DaysAgo.title }} </div>
+        <div style="  width: 100%; float: left; margin: none; text-align: center;  color: black"> {{
+          apodObject5DaysAgo.title }} </div>
         <div style="float: left; margin: none">
           <img class="img-card" [src]="apodObject5DaysAgo.url" alt=" No se puede mostrar la imagen." />
         </div>
-        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{ apodObject5DaysAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{
+          apodObject5DaysAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: center; margin: none; text-align: center;">
+          <button mat-raised-button color="primary" (click)="goToDetail(apodObject5DaysAgo)">Detalle</button>
+        </div>
       </div>
 
       <div style=" width: 30%;float: left; margin: none">
-        <div style="  width: 100%; float: left; margin: none; text-align: center; color: black"> {{ apodObject4DaysAgo.title  }} </div>
+        <div style="  width: 100%; float: left; margin: none; text-align: center; color: black"> {{
+          apodObject4DaysAgo.title }} </div>
         <div style="float: left; margin: none">
           <img class="img-card" [src]="apodObject4DaysAgo.url" alt=" No se puede mostrar la imagen." />
         </div>
-        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{ apodObject4DaysAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{
+          apodObject4DaysAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: center; margin: none; text-align: center;">
+          <button mat-raised-button color="primary" (click)="goToDetail(apodObject4DaysAgo)">Detalle</button>
+        </div>
       </div>
 
     </div>
@@ -34,36 +50,46 @@
     <div layout="row" style=" height: 400px;">
 
       <div style=" width: 30%;float: left; margin: none">
-        <div style="  width: 100%; float: left; margin: none; text-align: center; color: black"> {{ apodObject3DaysAgo.title }} </div>
+        <div style="  width: 100%; float: left; margin: none; text-align: center; color: black"> {{
+          apodObject3DaysAgo.title }} </div>
         <div style="float: left; margin: none">
           <img class="img-card" [src]="apodObject3DaysAgo.url" alt=" No se puede mostrar la imagen." />
         </div>
-        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{ apodObject3DaysAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{
+          apodObject3DaysAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: center; margin: none; text-align: center;">
+          <button mat-raised-button color="primary" (click)="goToDetail(apodObject3DaysAgo)">Detalle</button>
+        </div>
       </div>
 
       <div style=" width: 30%;float: left; margin: none">
-        <div style="  width: 100%; float: left; margin: none; text-align: center; color: black"> {{ apodObject2DaysAgo.title }} </div>
+        <div style="  width: 100%; float: left; margin: none; text-align: center; color: black"> {{
+          apodObject2DaysAgo.title }} </div>
         <div id="video" *ngIf="apodObject2DaysAgo.media_type === 'video'">
-          <!-- Display and embed the YouTube video if the media_type is set to video -->
-          <iframe
-            *ngIf="apodObject2DaysAgo.media_type === 'video'"
-            [src]="apodObject2DaysAgo.url | safe: 'resourceUrl'"
-            class="img-card"
-            allowfullscreen
-          ></iframe>
+          <iframe *ngIf="apodObject2DaysAgo.media_type === 'video'" [src]="apodObject2DaysAgo.url | safe: 'resourceUrl'"
+            class="img-card" allowfullscreen></iframe>
         </div>
-        <div style="float: left; margin: none"  *ngIf="apodObject2DaysAgo.media_type === 'image'">
+        <div style="float: left; margin: none" *ngIf="apodObject2DaysAgo.media_type === 'image'">
           <img class="img-card" [src]="apodObject2DaysAgo.url" alt=" No se puede mostrar la imagen." />
         </div>
-        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{ apodObject2DaysAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{
+          apodObject2DaysAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: center; margin: none; text-align: center;">
+          <button mat-raised-button color="primary" (click)="goToDetail(apodObject2DaysAgo)">Detalle</button>
+        </div>
       </div>
 
       <div style=" width: 30%;float: left; margin: none">
-        <div style="  width: 100%; float: left; margin: none; text-align: center; color: black"> {{ apodObject1DayAgo.title }} </div>
+        <div style="  width: 100%; float: left; margin: none; text-align: center; color: black"> {{
+          apodObject1DayAgo.title }} </div>
         <div style="float: left; margin: none">
           <img class="img-card" [src]="apodObject1DayAgo.url" alt=" No se puede mostrar la imagen." />
         </div>
-        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{ apodObject1DayAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: left; margin: none; text-align: center; color: orange"> {{
+          apodObject1DayAgo.date | date : "dd/MM/yyyy" }} </div>
+        <div style=" width: 100%; float: center; margin: none; text-align: center;">
+          <button mat-raised-button color="primary" (click)="goToDetail(apodObject1DayAgo)">Detalle</button>
+        </div>
       </div>
 
     </div>

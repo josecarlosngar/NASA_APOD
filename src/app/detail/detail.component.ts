@@ -1,3 +1,6 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApodService } from './../services/apod.service';
+import { Apod } from './../models/apod';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  public apodObject: Apod = new Apod;
+
+  constructor(private apodApi: ApodService, private _router: Router, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+
+    this._activatedRoute.queryParams.subscribe(params => {
+      this.apodObject.explanation = params['explanation'];
+      this.apodObject.url = params['url'];
+      this.apodObject.media_type = params['media_type'];
+    });
+  }
+
+  goToHome(): void {
+    this._router.navigate(['']);
+
   }
 
 }

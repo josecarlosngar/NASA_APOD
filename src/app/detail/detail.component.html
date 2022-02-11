@@ -1,1 +1,18 @@
-<p>detail works!</p>
+<div class="main-div" *ngIf="apodObject">
+  <mat-card class="nasa-card">
+    <img class="card-img-top" [src]="apodObject.url" alt="Card image"
+      *ngIf="apodObject.media_type === 'image'" />
+
+    <div id="video" *ngIf="apodObject.media_type === 'video'">
+      <iframe *ngIf="apodObject.media_type === 'video'" [src]="apodObject.url | safe: 'resourceUrl'"
+        allowfullscreen></iframe>
+    </div>
+    <mat-card-content>
+      <p>{{ apodObject.explanation }}</p>
+    </mat-card-content>
+    <mat-card-actions align="end" class="bottom-buttons">
+      <button mat-raised-button color="success" (click)="goToHome()">VOLVER</button>
+      <div fxFlex></div>
+    </mat-card-actions>
+  </mat-card>
+</div>

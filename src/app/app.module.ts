@@ -11,6 +11,8 @@ import { DetailComponent } from './detail/detail.component';
 
 
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { MatCardModule } from '@angular/material/card';
     BrowserAnimationsModule,
     HttpClientModule,
     SafePipeModule,
-		MatCardModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

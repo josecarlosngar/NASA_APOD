@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Apod } from "../models/apod";
 import { ApodService } from "../services/apod.service";
 
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor(private apodApi: ApodService) {}
+  constructor(private apodApi: ApodService, private _router: Router) { }
 
   ngOnInit(): void {
 
@@ -27,30 +28,37 @@ export class HomeComponent implements OnInit {
     const month = new Date().getMonth() + 1;
     const day = new Date().getDate();
 
-    this.apodApi.getApodWithParams(year,month,day-6).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(year, month, day - 6).subscribe((response: Apod) => {
       this.apodObject6DaysAgo = response;
     });
 
-    this.apodApi.getApodWithParams(year,month,day-5).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(year, month, day - 5).subscribe((response: Apod) => {
       this.apodObject5DaysAgo = response;
     });
 
-    this.apodApi.getApodWithParams(year,month,day-4).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(year, month, day - 4).subscribe((response: Apod) => {
       this.apodObject4DaysAgo = response;
     });
 
-    this.apodApi.getApodWithParams(year,month,day-3).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(year, month, day - 3).subscribe((response: Apod) => {
       this.apodObject3DaysAgo = response;
     });
 
-    this.apodApi.getApodWithParams(year,month,day-2).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(year, month, day - 2).subscribe((response: Apod) => {
       this.apodObject2DaysAgo = response;
     });
 
-    this.apodApi.getApodWithParams(year,month,day-1).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(year, month, day - 1).subscribe((response: Apod) => {
       this.apodObject1DayAgo = response;
     });
   }
+
+
+  goToDetail(apodObject: Apod): void {
+    this._router.navigate(['detail'], { queryParams: { url: apodObject.url, explanation: apodObject.explanation, media_type: apodObject.media_type }, skipLocationChange: true });
+  }
+
+
 }
 
 
