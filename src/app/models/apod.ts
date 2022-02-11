@@ -1,6 +1,7 @@
 
 export class Apod {
-  date!: String;
-  url!: String;
+  date!: Date;
+  url!: string;
   title!: String;
+  media_type! : String;
 }

@@ -15,6 +15,22 @@ export class ApodService {
 
   constructor(private http: HttpClient) {}
 
+
+  public getApodWithParams(year:Number, month:Number, day: Number): Observable<Apod> {
+
+
+
+    this.apiKey = environment.API_KEY;
+
+    const apodUrl = `https://api.nasa.gov/planetary/apod?date=${year}-${month}-${day}&api_key=${this.apiKey}`;
+
+    return this.http.get<Apod>(apodUrl).pipe(
+      catchError((err: any) => {
+        return throwError(() => err);
+      })
+    );
+  }
+
   public getApodImage(): Observable<Apod> {
 
     const year = new Date().getFullYear();
