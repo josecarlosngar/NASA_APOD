@@ -24,31 +24,36 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const year = new Date().getFullYear();
-    const month = new Date().getMonth() + 1;
-    const day = new Date().getDate();
+    var fecha = new Date();
 
-    this.apodApi.getApodWithParams(year, month, day - 6).subscribe((response: Apod) => {
+    var date6DaysAgo = new Date(fecha.getTime() - 24*60*60*1000*6);
+    var date5DaysAgo = new Date(fecha.getTime() - 24*60*60*1000*5);
+    var date4DaysAgo = new Date(fecha.getTime() - 24*60*60*1000*4);
+    var date3DaysAgo = new Date(fecha.getTime() - 24*60*60*1000*3);
+    var date2DaysAgo = new Date(fecha.getTime() - 24*60*60*1000*2);
+    var dateADayAgo = new Date(fecha.getTime() - 24*60*60*1000);
+
+    this.apodApi.getApodWithParams(date6DaysAgo.getFullYear(), date6DaysAgo.getMonth() + 1, date6DaysAgo.getDate()).subscribe((response: Apod) => {
       this.apodObject6DaysAgo = response;
     });
 
-    this.apodApi.getApodWithParams(year, month, day - 5).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(date5DaysAgo.getFullYear(), date5DaysAgo.getMonth() + 1, date5DaysAgo.getDate()).subscribe((response: Apod) => {
       this.apodObject5DaysAgo = response;
     });
 
-    this.apodApi.getApodWithParams(year, month, day - 4).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(date4DaysAgo.getFullYear(), date4DaysAgo.getMonth() + 1, date4DaysAgo.getDate()).subscribe((response: Apod) => {
       this.apodObject4DaysAgo = response;
     });
 
-    this.apodApi.getApodWithParams(year, month, day - 3).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(date3DaysAgo.getFullYear(), date3DaysAgo.getMonth() + 1, date3DaysAgo.getDate()).subscribe((response: Apod) => {
       this.apodObject3DaysAgo = response;
     });
 
-    this.apodApi.getApodWithParams(year, month, day - 2).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(date2DaysAgo.getFullYear(), date2DaysAgo.getMonth() + 1, date2DaysAgo.getDate()).subscribe((response: Apod) => {
       this.apodObject2DaysAgo = response;
     });
 
-    this.apodApi.getApodWithParams(year, month, day - 1).subscribe((response: Apod) => {
+    this.apodApi.getApodWithParams(dateADayAgo.getFullYear(), dateADayAgo.getMonth() + 1, dateADayAgo.getDate()).subscribe((response: Apod) => {
       this.apodObject1DayAgo = response;
     });
   }
@@ -57,7 +62,6 @@ export class HomeComponent implements OnInit {
   goToDetail(apodObject: Apod): void {
     this._router.navigate(['detail'], { queryParams: { url: apodObject.url, explanation: apodObject.explanation, media_type: apodObject.media_type }, skipLocationChange: true });
   }
-
 
 }
 
