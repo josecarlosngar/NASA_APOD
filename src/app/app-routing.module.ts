@@ -13,11 +13,6 @@ const routes: Routes = [
     component: DetailComponent,
   },
 
-  // {
-  //   path: '**',
-  //   pathMatch: 'full',
-  //   component: HomeComponent
-  // }
 ];
 
 @NgModule({

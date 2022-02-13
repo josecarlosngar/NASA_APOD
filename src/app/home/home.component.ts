@@ -18,20 +18,18 @@ export class HomeComponent implements OnInit {
   public apodObject2DaysAgo: Apod = new Apod;
   public apodObject1DayAgo: Apod = new Apod;
 
-
-
   constructor(private apodApi: ApodService, private _router: Router) { }
 
   ngOnInit(): void {
 
     var fecha = new Date();
 
-    var date6DaysAgo = new Date(fecha.getTime() - 24*60*60*1000*6);
-    var date5DaysAgo = new Date(fecha.getTime() - 24*60*60*1000*5);
-    var date4DaysAgo = new Date(fecha.getTime() - 24*60*60*1000*4);
-    var date3DaysAgo = new Date(fecha.getTime() - 24*60*60*1000*3);
-    var date2DaysAgo = new Date(fecha.getTime() - 24*60*60*1000*2);
-    var dateADayAgo = new Date(fecha.getTime() - 24*60*60*1000);
+    var date6DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 26);
+    var date5DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 25);
+    var date4DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 24);
+    var date3DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 23);
+    var date2DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 22);
+    var dateADayAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000);
 
     this.apodApi.getApodWithParams(date6DaysAgo.getFullYear(), date6DaysAgo.getMonth() + 1, date6DaysAgo.getDate()).subscribe((response: Apod) => {
       this.apodObject6DaysAgo = response;

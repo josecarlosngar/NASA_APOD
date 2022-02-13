@@ -2,8 +2,7 @@
 export class Apod {
   date!: Date;
   url!: string;
-  title!: String;
-  media_type! : String;
-  explanation! :String;
-  hdurl! :String;
+  title!: string;
+  media_type!: string;
+  explanation!: string;
 }

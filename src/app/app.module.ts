@@ -12,7 +12,7 @@ import { DetailComponent } from './detail/detail.component';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     SafePipeModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

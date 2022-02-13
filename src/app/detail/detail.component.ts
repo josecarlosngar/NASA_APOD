@@ -16,17 +16,16 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-
     this._activatedRoute.queryParams.subscribe(params => {
       this.apodObject.explanation = params['explanation'];
       this.apodObject.url = params['url'];
       this.apodObject.media_type = params['media_type'];
     });
+
   }
 
   goToHome(): void {
     this._router.navigate(['']);
-
   }
 
 }

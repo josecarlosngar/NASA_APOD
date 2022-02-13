@@ -1,18 +1,29 @@
 <div class="main-div" *ngIf="apodObject">
-  <mat-card class="nasa-card">
-    <img class="card-img-top" [src]="apodObject.url" alt="Card image"
-      *ngIf="apodObject.media_type === 'image'" />
 
-    <div id="video" *ngIf="apodObject.media_type === 'video'">
-      <iframe *ngIf="apodObject.media_type === 'video'" [src]="apodObject.url | safe: 'resourceUrl'"
-        allowfullscreen></iframe>
+  <mat-card class="nasa-card">
+
+    <div class="img-div" *ngIf="apodObject.media_type === 'video'">
+      <iframe class="img-card" *ngIf="apodObject.media_type === 'video'" [src]="apodObject.url | safe: 'resourceUrl'"
+        allowfullscreen>
+      </iframe>
     </div>
-    <mat-card-content>
-      <p>{{ apodObject.explanation }}</p>
-    </mat-card-content>
-    <mat-card-actions align="end" class="bottom-buttons">
-      <button mat-raised-button color="success" (click)="goToHome()">VOLVER</button>
-      <div fxFlex></div>
-    </mat-card-actions>
+
+    <div class="img-div" *ngIf="apodObject.media_type === 'image'">
+      <img class="img-card" [src]="apodObject.url" alt=" No se puede mostrar la imagen." />
+    </div>
+
+    <div class="explanation-div">
+      <div class="explanation-div-2">
+        {{ apodObject.explanation}}
+      </div>
+    </div>
+
+    <div class="button-div">
+      <button mat-raised-button (click)="goToHome()">
+        <mat-icon>home</mat-icon>
+      </button>
+    </div>
+
   </mat-card>
+
 </div>
