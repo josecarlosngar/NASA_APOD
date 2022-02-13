@@ -24,13 +24,15 @@ export class HomeComponent implements OnInit {
 
     var fecha = new Date();
 
-    var date6DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 26);
-    var date5DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 25);
-    var date4DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 24);
-    var date3DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 23);
-    var date2DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 22);
+    // Obtiene las fechas de los 6 días anteriores al día de hoy
+    var date6DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 6);
+    var date5DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 5);
+    var date4DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 4);
+    var date3DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 3);
+    var date2DaysAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000 * 2);
     var dateADayAgo = new Date(fecha.getTime() - 24 * 60 * 60 * 1000);
 
+    // Llamada al servicio que obtiene los datos de la API de la NASA pasandole los parámetros año,mes,dia
     this.apodApi.getApodWithParams(date6DaysAgo.getFullYear(), date6DaysAgo.getMonth() + 1, date6DaysAgo.getDate()).subscribe((response: Apod) => {
       this.apodObject6DaysAgo = response;
     });
@@ -56,7 +58,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
+  // Navega al componente Detalle pasándole los parámetros que necesita
   goToDetail(apodObject: Apod): void {
     this._router.navigate(['detail'], { queryParams: { url: apodObject.url, explanation: apodObject.explanation, media_type: apodObject.media_type }, skipLocationChange: true });
   }

@@ -15,7 +15,7 @@ export class ApodService {
 
   constructor(private http: HttpClient) { }
 
-
+  // Obtiene los datos de la API de la NASA
   public getApodWithParams(year: Number, month: Number, day: Number): Observable<Apod> {
 
     this.apiKey = environment.API_KEY;

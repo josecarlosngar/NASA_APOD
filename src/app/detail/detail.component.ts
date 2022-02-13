@@ -16,6 +16,7 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Obtiene parámetros para mostrar en el componente Detalle
     this._activatedRoute.queryParams.subscribe(params => {
       this.apodObject.explanation = params['explanation'];
       this.apodObject.url = params['url'];
@@ -24,6 +25,7 @@ export class DetailComponent implements OnInit {
 
   }
 
+  // Navega a página principal
   goToHome(): void {
     this._router.navigate(['']);
   }
